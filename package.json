@@ -1,0 +1,14 @@
+{
+  "name": "caching-proxy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HTTP caching proxy with Redis cache, PostgreSQL analytics, and a React dashboard",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client"
+  }
+}
