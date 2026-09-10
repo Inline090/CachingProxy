@@ -1,12 +1,15 @@
-const http = require('http')
+const express = require('express')
 
 const PORT = process.env.PORT || 3000
+const ORIGIN = process.env.ORIGIN || 'http://localhost:8080'
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end('Caching proxy placeholder — the real proxy lands in the next increment.')
+const app = express()
+
+app.get('/', (req, res) => {
+  res.send(`caching-proxy is running. Forwarding to origin: ${ORIGIN}`)
 })
 
-server.listen(PORT, () => {
-  console.log(`caching-proxy dev server listening on http://localhost:${PORT}`)
+app.listen(PORT, () => {
+  console.log(`caching-proxy listening on http://localhost:${PORT}`)
+  console.log(`forwarding to origin: ${ORIGIN}`)
 })
